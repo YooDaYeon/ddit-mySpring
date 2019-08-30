@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="prod">
+
+	<select id="prodListLgu" parameterType="string" resultType="prodVO">
+		select prod_id,prod_name,prod_lgu from prod where prod_lgu = #{prod_lgu}
+	</select>
+	
+	<select id="prodList" resultType="prodVO">
+		select prod_id,prod_name,prod_lgu from prod
+	</select>
+
+</mapper>

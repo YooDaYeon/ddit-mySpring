@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	
+	<!-- @Service, @Repository, @Component 4가지 이노테이션이 붙은 클래스를 스프링 빈으로 등록 -->
+<!-- 	<context:component-scan base-package="kr.or.ddit"> -->
+<!-- 		<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/> -->
+<!-- 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+<!-- 	</context:component-scan> -->
+
+	<bean id="boardService" class="kr.or.ddit.board.service.BoardService"></bean>
+	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDao"></bean>
+	<bean id="ProfilingAspect" class="kr.or.ddit.aop.ProfilingAspect"/>
+	<aop:aspectj-autoproxy/>
+	
+	<!--어플리케이션 컨텍스트안에 이미 등록된 어노테이션을 활성화를 위해 사용됨  -->
+	<context:annotation-config/>
+	
+	
+
+</beans>
